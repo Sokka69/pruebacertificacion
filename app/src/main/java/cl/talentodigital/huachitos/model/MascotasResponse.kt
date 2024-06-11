@@ -1,4 +1,4 @@
-package cl.talentodigital.huachitos.model.network
+package cl.talentodigital.huachitos.model
 
 data class MascotasResponse(
     val id: Long,

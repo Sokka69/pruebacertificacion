@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Huachitos</string>
     <string name="txt_encuentra">Encuentra un amigo</string>
     <string name="nombre_mascota">Nombre mascota</string>
     <string name="txt_tipo">Tipo de Mascota</string>
