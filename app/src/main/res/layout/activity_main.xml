@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
@@ -56,10 +57,10 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listaMascotas"
+            android:id="@+id/listaRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem=""/>
+            tools:listitem="@layout/item_mascota" />
     </FrameLayout>
 
 

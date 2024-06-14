@@ -4,4 +4,5 @@
     <string name="nombre_mascota">Nombre mascota</string>
     <string name="txt_tipo">Tipo de Mascota</string>
     <string name="txt_edad">Edad Mascota</string>
+    <string name="genero">Genero</string>
 </resources>

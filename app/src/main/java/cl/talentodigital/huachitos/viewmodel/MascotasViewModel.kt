@@ -16,21 +16,27 @@ import retrofit2.create
 class MascotasViewModel : ViewModel() {
     // LiveData
     val listaMascotas = MutableLiveData<List<MascotasResponse>>()
+    val detalleMascota = MutableLiveData<MascotasResponse>()
     val errores = MutableLiveData<String>()
 
-    fun getMascotas() {
+    /**
+     * Funcion para obtener data de la API
+     */
+    fun listarMascotas() {
         // Implementacion corrutina
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val respuesta = RetrofitClass.retrofit.create(ApiService::class.java)
-                val call = respuesta.getMascotas()
-                call.enqueue(object : Callback<List<MascotasResponse>> {
+                val retroInstance = RetrofitClass.retrofit.create(ApiService::class.java)
+                val callApi = retroInstance.getMascotas()
+                callApi.enqueue(object : Callback<List<MascotasResponse>> {
+
                     override fun onResponse(
                         call: Call<List<MascotasResponse>>,
                         response: Response<List<MascotasResponse>>
                     ) {
                         if (response.isSuccessful) {
-                            listaMascotas.postValue(response.body())
+                            val respuesta = response.body()
+                            listaMascotas.postValue(respuesta)
                         } else {
                             errores.postValue(
                                 "Error en la API - ${
@@ -46,7 +52,7 @@ class MascotasViewModel : ViewModel() {
                 })
             } catch (e: Exception) {
                 e.printStackTrace()
-                errores.postValue("Error al obtener datos - ${e.message}")
+                errores.postValue("Error Interno - ${e.message}")
             }
         }
     }

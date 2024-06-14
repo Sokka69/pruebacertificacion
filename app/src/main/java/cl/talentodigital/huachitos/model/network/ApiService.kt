@@ -11,7 +11,7 @@ interface ApiService {
     fun getMascotas(): Call<List<MascotasResponse>>
 
     //Detalle Mascota
-    @GET("animales/{id}")
-    fun getDetalleMascota(@Path("id_mascota") mascotaCargada: Int): Call<MascotasResponse>
+    @GET("animales/{id_mascota}")
+    fun getDetalleMascota(@Path("id_mascota") mascotaCargada: Long): Call<MascotasResponse>
 
 }
